@@ -47,6 +47,18 @@
 - Commit messages: conventional-ish (feat/, fix/, chore/, docs/). Keep them concise.
 - Add minimal CI to run tests on push/PR (GH Actions recommended).
 
+### UI Standards (enforced for all future UI components) 🔧
+- **All `button` components must include a subtle scale-on-hover interaction:** `transition transform hover:scale-105` (or equivalent CSS). This rule is mandatory for every new or updated UI component unless a documented exception is approved.
+- **Implementation guidance:**
+  - Tailwind: `class="transition transform hover:scale-105"` on the root `button` element.
+  - CSS fallback (vanilla): `transition: transform .12s ease-in-out;` and `button:hover { transform: scale(1.05); }`.
+  - Prefer implementing the effect at the **component** level (e.g., `Button.tsx`) so all usages inherit it.
+- **Testing & verification:**
+  - Unit: snapshot tests that assert the `className`/style on the `button` component.
+  - Visual: add a Storybook story and include a Percy/Chromatic visual check for the hover state where possible.
+  - PR checklist: include `UI Standards` item — `Button: hover scale applied` (auto-check via lint/test if available).
+- **Enforcement:** add a linting rule or unit test in the component template; document the pattern in `src/components/Button/README.md`.
+
 ## 🔁 Verification (what I ran for this task)
 - Created & pushed repo: `Natnael-Alemseged/mcp-challenge` (branch `main`).
 - Implemented a small Python CLI (`cli_game`) with unit tests and verified tests locally (with `PYTHONPATH` adjustment).
