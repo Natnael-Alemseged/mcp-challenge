@@ -43,3 +43,7 @@ Before clicking send, verify:
 [ ] Is the performance feedback (if applicable) wrapped in *****************************************?
 
 FAILURE TO FOLLOW THESE RULES CONSTITUTES A BREACH OF PROJECT PROTOCOL.
+---
+alwaysApply: true
+---
+
